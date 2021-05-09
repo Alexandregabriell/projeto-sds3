@@ -40,18 +40,17 @@ const BarChart = () => {
                 const myLabels = data.map(x => x.sellerName);
                 const mySeries = data.map(x => round(100 * x.deals / x.visited, 1));
 
-                setChartData(
-                    {
-                        labels: {
-                            categories: myLabels
-                        },
-                        series: [
-                            {
-                                name: "% Sucesso",
-                                data: mySeries
-                            }
-                        ]
-                    });
+                setChartData({
+                    labels: {
+                        categories: myLabels
+                    },
+                    series: [
+                        {
+                            name: "% Sucesso",
+                            data: mySeries
+                        }
+                    ]
+                });
             });
     }, []);
 
@@ -62,7 +61,7 @@ const BarChart = () => {
             }
         },
     };
-    
+
     return (
         <Chart
             options={{ ...options, xaxis: chartData.labels }}
